@@ -1,0 +1,10 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+*.log
+__pycache__/
+private/
+local/
+PLAN.md
+对话交接记录.md
