@@ -1,28 +1,25 @@
 # tutu-persona-skill
 
-图图启发的中文对话人设，v0.1 研究原型。优先表现好奇、具体、直率、善良的儿童视角，避免把成人说教包装成卖萌。
+**v0.3 · 第二季情境增补版，2026-11-13。**非官方图图风格中文聊天角色skill及可复制preset。“蒸馏”指提炼行为提示词，不涉及模型训练、权重或原配音。
 
-这是非官方角色研究与提示词作品。当前根据央视与合作发行页的人物简介构建，**尚未完成原片逐集分析或全剧台词提炼**。这里的“蒸馏”指整理角色设定，不包含模型训练、权重或完整剧本。
+相比v0.1的人物简介原型，本版新增第一季14组定位片段的语境分析：从具体经验理解新东西，沿答案认真追问，把规则试用到新情境，保留具体的关心、小愿望与不服气。安慰方式按用户陪聊目标单独定制，原作依据与设计选择分开写。
 
-## 内容
-
-- [`tutu-persona/SKILL.md`](tutu-persona/SKILL.md)：可供支持 skill 的宿主读取的入口。
-- [`preset-core.md`](tutu-persona/references/preset-core.md)：放进专属 Agent Preset 的常驻人设正文。
-- [`character-evidence.md`](tutu-persona/references/character-evidence.md)：来源与推断界限。
-- [`dialogue-examples.md`](tutu-persona/references/dialogue-examples.md)：原创对话示例，不是动画台词。
-- [`evaluation.md`](tutu-persona/references/evaluation.md)：部署后的人工验收情境。
-- [`integration.md`](integration.md)：与 DeepSeek Harness / dsh-im 配合的方法。
+第二季26集字幕来源已逐集取得并核对目录；新增15组情境及反例分析，重点区分直接表达喜欢、具体关心、尝试逗开心和请求小愿望。原始字幕6482条含附加内容，不等于6482条图图台词。
 
 ## 使用
 
-在支持 Agent Skills 的宿主中导入 `tutu-persona` 文件夹。常驻聊天角色还应把 `preset-core.md` 正文放到对应角色的系统设定中；仅把文件下载到磁盘，不代表模型已读到它。
+- 支持Agent Skills的宿主导入 [`tutu-persona`](tutu-persona/SKILL.md) 文件夹，使用图图专属会话。
+- Harness常驻角色：把 [核心正文](tutu-persona/references/preset-core.md) 放进图图专属Agent Preset。skill按宿主实际机制加载；没有加载能力时可先只用核心正文。
+- [原创示例](tutu-persona/references/dialogue-examples.md) 帮助理解口吻；[证据表](tutu-persona/references/character-evidence.md) 用于解释与修订规则；[试聊情境](tutu-persona/references/evaluation.md) 用于实际模型验收。
+- [接入说明](integration.md) 沿用先前部署交接，未与本版实机联调；插件与宿主版本须部署时核对。
 
-没有 skill 加载功能的宿主，可直接使用核心人设正文，再按需要添加少量原创示例。不要把检索记录、部署计划和全部参考材料每轮重复塞入上下文。
+- [特殊情境](tutu-persona/references/special-situations.md)：夸人、安慰、撒娇、分别、认错与误会。
+- [第二季证据](tutu-persona/references/season2-evidence.md)：新增规则的具体依据与反例。
 
-此 skill 不会安装微信插件，不授予账号操作权限，也不自带看图、生图、声音、长期记忆或发朋友圈功能。QQ 等其他入口可以绑定另一套角色，不必加载本 skill。
+## 当前限度
 
-## 质量状态
+第一季104个上传分P中，71段取得中文字幕，33段待取得。角色归属含语境推断，未完成全季逐句核验。第一季范围不变；第二季全部26集取得字幕响应，但尚未逐句完成准确性、说话人及音视频同步校验。本版是选定片段初步提炼，不是全剧复刻；没有完整原作记忆，也不自带微信、识图、生图、长期记忆或朋友圈能力。
 
-已提供结构检查与人工验收材料；未在 DeepSeek API / 微信生产会话上完成效果测试。后续应以原片场景笔记和用户试聊反馈修订，而不是不断堆砌形容词。基础证据见 [来源表](tutu-persona/references/character-evidence.md)。
+结构和来源定位可以检查，实际聊天自然度需用所选DeepSeek模型试聊。本版尚未进行付费API或微信效果测试。
 
-未附开源许可证；当前用于私人仓库中的开发与试用。角色名称、作品和第三方材料的权利不因本仓库而转移。仓库不收录整集台词、原片媒体、配音素材或用户聊天记录。
+仓库只含可独立使用的人设、摘要证据和原创示例，不含整集字幕、媒体、用户对话或密钥。私人开发与试用状态未变，未附开源许可证；第三方角色与作品权利不因本项目转移。
